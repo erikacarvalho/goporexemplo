@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Go por Exemplo: Canais</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script type="text/javascript">
+    if (window.location.host == "gobyexample.com") {
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34996217-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    }
+  </script>
+  <body>
+    <div class="example" id="channels">
+      <h2><a href="./">Go por Exemplo</a>: Canais</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p><em>Canais</em> são pipes que conectam goroutines concorrentes.
+            Você pode enviar valores para os canais de uma goroutine e 
+            receber esses valores em outra goroutine. Canais são um poderoso
+            primitivo que são muito subjacentes à funcionalidade do Go.</p>
+            
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        <a href="http://go-vim.appspot.com/p/M5MHHPD19E"><img title="Executar código" src="play.png" class="run" /></a>
+            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Cria um novo canal com <code>make(chan tipo-val)</code>.
+Canais são digitados pelos valores que eles transmitem.</p>            
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">mensagens</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p><em>Envia</em> um valor para um canal usando a sintaxe <code>canal &lt;-</code>.
+            Aqui enviamos <code>"ping"</code> para o canal <code>mensagens</code> que
+            fizemos acima, a partir de uma nova goroutine.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="nx">mensagens</span> <span class="o">&lt;-</span> <span class="s">&quot;ping&quot;</span> <span class="p">}()</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>A sintaxe <code>&lt;-canal</code> <em>recebe</em> um valor de um
+            canal. Aqui nós vamos receber a mensagem <code>&quot;ping&quot;</code>
+            que enviamos acima e imprimi-lo.</p>           
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre>    <span class="nx">msg</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">mensagens</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Quando nós executarmos o programa a mensagem <code>&quot;ping&quot;</code> 
+            é passada com sucesso de uma goroutine para outra através de nosso canal.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> go run canais.go 
+<span class="go">ping</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Por padrão envia e recebe blocos até que 
+            o emissor e receptor estejam prontos. Essa propriedade nos permitiu
+            esperar até o final de nosso programa pela mensagem <code>&quot;ping&quot;</code>
+            sem ter que usar qualquer outra sincronização.</p>
+
+          </td>
+          <td class="code empty">
+	        
+            
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Próximo exemplo: <a href="channel-buffering">Buferização de Canal</a>.        
+      </p>
+      
+      <p class="footer">
+        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo">código-fonte</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo#licen%C3%A7a">licença</a>
+      </p>
+    </div>
+  </body>
+</html>

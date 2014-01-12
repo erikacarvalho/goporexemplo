@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Go por Exemplo: Direções do Canal</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script type="text/javascript">
+    if (window.location.host == "gobyexample.com") {
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34996217-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    }
+  </script>
+  <body>
+    <div class="example" id="channel-directions">
+      <h2><a href="./">Go por Exemplo</a>: Direções do Canal</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Ao utilizar canais como parâmetros de funções, você pode
+            especificar se o canal é destinado a apenas enviar ou receber
+            valores. Essa especificidade aumenta a segurança de tipos do 
+            programa.</p>
+
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        <a href="http://go-vim.appspot.com/p/sqVH5r8dck"><img title="Executar código" src="play.png" class="run" /></a>
+            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Essa função <code>ping</code> aceita apenas um canal para enviar
+            valores. Seria um erro de compilação-tempo tentar receber
+            nesse canal.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">ping</span><span class="p">(</span><span class="nx">pings</span> <span class="kd">chan</span><span class="o">&lt;-</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">pings</span> <span class="o">&lt;-</span> <span class="nx">msg</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>A função <code>pong</code> aceita um canal para receber
+            (<code>pings</code>) e um segundo para enviar (<code>pongs</code>).</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">pong</span><span class="p">(</span><span class="nx">pings</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">pongs</span> <span class="kd">chan</span><span class="o">&lt;-</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">msg</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">pings</span>
+    <span class="nx">pongs</span> <span class="o">&lt;-</span> <span class="nx">msg</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">pings</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nx">pongs</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nx">ping</span><span class="p">(</span><span class="nx">pings</span><span class="p">,</span> <span class="s">&quot;mensagem passada&quot;</span><span class="p">)</span>
+    <span class="nx">pong</span><span class="p">(</span><span class="nx">pings</span><span class="p">,</span> <span class="nx">pongs</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="o">&lt;-</span><span class="nx">pongs</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> go run direções-de-canais.go
+<span class="go">mensagem passada</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Próximo exemplo: <a href="select">Select</a>.
+      </p>
+      
+      <p class="footer">
+        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo">código-fonte</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo#licen%C3%A7a">licença</a>
+      </p>
+    </div>
+  </body>
+</html>

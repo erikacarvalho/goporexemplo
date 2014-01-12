@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Go por Exemplo: Interfaces</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script type="text/javascript">
+    if (window.location.host == "gobyexample.com") {
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34996217-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    }
+  </script>
+  <body>
+    <div class="example" id="interfaces">
+      <h2><a href="./">Go por Exemplo</a>: Interfaces</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p><em>Interfaces</em> são coleções nomeadas de
+            assinaturas de métodos.</p>
+
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        <a href="http://www.go-vim.appspot.com/p/RqIakY1yxL"><img title="Executar código" src="play.png" class="run" /></a>
+            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+<span class="kn">import</span> <span class="s">&quot;math&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Aqui temos uma interface básica para formas geométricas.</p>            
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">type</span> <span class="nx">geometria</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span>
+    <span class="nx">perim</span><span class="p">()</span> <span class="kt">float64</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Para nosso exemplo vamos implementar essa interface nos 
+            tipos <code>quadrado</code> e <code>círculo</code>.
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">type</span> <span class="nx">quadrado</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">largura</span><span class="p">,</span> <span class="nx">altura</span> <span class="kt">float64</span>
+<span class="p">}</span>
+<span class="kd">type</span> <span class="nx">círculo</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">raio</span> <span class="kt">float64</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Para implementar uma interface no Go, nós apenas precisamos
+            implementar todos os métodos na interface. Aqui nós
+            implementamos <code>geometria</code> nos <code>quadrado</code>s.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">q</span> <span class="nx">quadrado</span><span class="p">)</span> <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">q</span><span class="p">.</span><span class="nx">largura</span> <span class="o">*</span> <span class="nx">s</span><span class="p">.</span><span class="nx">altura</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">q</span> <span class="nx">quadrado</span><span class="p">)</span> <span class="nx">perim</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="nx">q</span><span class="p">.</span><span class="nx">largura</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="nx">q</span><span class="p">.</span><span class="nx">altura</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>A implementação para <code>círculo</code>s.</p>            
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">círculo</span><span class="p">)</span> <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">math</span><span class="p">.</span><span class="nx">Pi</span> <span class="o">*</span> <span class="nx">c</span><span class="p">.</span><span class="nx">raio</span> <span class="o">*</span> <span class="nx">c</span><span class="p">.</span><span class="nx">raio</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">círculo</span><span class="p">)</span> <span class="nx">perim</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">math</span><span class="p">.</span><span class="nx">Pi</span> <span class="o">*</span> <span class="nx">c</span><span class="p">.</span><span class="nx">raio</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Se a variável possui um tipo inteface, então nós podemos chamar
+            métodos que estão na interface nomeada. Aqui temos uma
+            função genérica <code>medida</code> tomando vantagem de seu
+            trabalho para qualquer <code>geometria</code>.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">medir</span><span class="p">(</span><span class="nx">g</span> <span class="nx">geometria</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">g</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">area</span><span class="p">())</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">perim</span><span class="p">())</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">q</span> <span class="o">:=</span> <span class="nx">quadrado</span><span class="p">{</span><span class="nx">largura</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">altura</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+    <span class="nx">c</span> <span class="o">:=</span> <span class="nx">círculo</span><span class="p">{</span><span class="nx">raio</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Os tipos de estruturas <code>círculo</code> e <code>quadrado</code> ambos
+            implementam a interface <code>geometria</code>, então podemos usar
+            instâncias dessas estruturas como argumentos para medir.</p>
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre>    <span class="nx">medir</span><span class="p">(</span><span class="nx">q</span><span class="p">)</span>
+    <span class="nx">medir</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> go run interfaces.go
+<span class="go">{3 4}</span>
+<span class="go">12</span>
+<span class="go">14</span>
+<span class="go">{5}</span>
+<span class="go">78.53981633974483</span>
+<span class="go">31.41592653589793</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Para aprender mais sobre interfaces do Go, confira esse           
+<a href="http://jordanorelli.tumblr.com/post/32665860244/how-to-use-interfaces-in-go">ótima postagem</a>.</p>
+
+          </td>
+          <td class="code empty">
+	        
+            
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Próximo exemplo: <a href="errors">Erros</a>.
+      </p>
+      
+      <p class="footer">
+        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo">código-fonte</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo#licen%C3%A7a">licença</a>
+      </p>
+    </div>
+  </body>
+</html>

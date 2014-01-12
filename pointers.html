@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Go por Exemplo: Ponteiros</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script type="text/javascript">
+    if (window.location.host == "gobyexample.com") {
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34996217-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    }
+  </script>
+  <body>
+    <div class="example" id="pointers">
+      <h2><a href="./">Go por Exemplo</a>: Ponteiros</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+          <p>Go suporta <em><a href="http://pt.wikipedia.org/wiki/Ponteiro_(programa%C3%A7%C3%A3o)">ponteiros</a></em>,
+permitindo passar as referências aos valores e registros
+dentro de seu programa.</p>
+
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        <a href="http://go-vim.appspot.com/p/SjvssVzOB_"><img title="Executar código" src="play.png" class="run" /></a>
+            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Vamos mostrar como os ponteiros trabalham em contraste aos valores
+            com duas funções: <code>zeroval</code> e <code>zeroptr</code>. <code>zeroval</code> possui um
+            um valor. <code>zeroval</code> irá pegar uma cópia do <code>ival</code> distinta
+            da função de chamada.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">zeroval</span><span class="p">(</span><span class="nx">ival</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ival</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p><code>zeroptr</code> em contraste possui um parâmetro <code>*int</code>, ou seja,
+            ele leva um ponteiro <code>int</code>. O código <code>*iptr</code> no
+            corpo da função então <code>desreferencia</code> o ponteiro de seu
+            endereço de memória para o valor atual nesse endereço.
+            Atribuir um valor para um ponteiro desreferenciado muda o
+            valor do endereço referenciado.</p>            
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">zeroptr</span><span class="p">(</span><span class="nx">iptr</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">*</span><span class="nx">iptr</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;inicial:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">zeroval</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;zeroval:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>A sintaxe <code>&amp;i</code> fornece o endereço da memória do <code>i</code>,
+            ou seja, um ponteiro para <code>i</code>.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">zeroptr</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;zeroptr:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Ponteiros podem ser impressos também.</p>            
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;ponteiro:&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+          <p><code>zeroval</code> não altera o <code>i</code> no <code>main</code>, mas
+          <code>zeroptr</code> muda pois ele tem uma referência ao endereço da memória para
+          essa variável.</p>
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> go run ponteiros.go
+<span class="go">inicial: 1</span>
+<span class="go">zeroval: 1</span>
+<span class="go">zeroptr: 0</span>
+<span class="go">ponteiro: 0x42131100</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Próximo exemplo: <a href="structs">Estruturas</a>.
+      </p>
+      
+      <p class="footer">
+        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo">código-fonte</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo#licen%C3%A7a">licença</a>
+      </p>
+    </div>
+  </body>
+</html>

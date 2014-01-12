@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Go por Exemplo: Slices</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script type="text/javascript">
+    if (window.location.host == "gobyexample.com") {
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34996217-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    }
+  </script>
+  <body>
+    <div class="example" id="slices">
+      <h2><a href="/go/porexemplo/">Go por Exemplo</a>: Slices</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p><em>Slices</em> são tipos de dados fundamentais no Go, fornecendo 
+            uma interface mais poderosa para seqüências de matrizes.</p>
+            
+            </p>
+
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        <a href="http://go-vim.appspot.com/p/LtAF5Eh0hY"><img title="Executar código" src="play.png" class="run" /></a>
+            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Ao contrário das matrizes, os slices são digitados apenas pelos
+            elementos que eles contêm (não o número de elementos).
+            Para criar um slice vazio com tamanho diferente de zero, use
+            o padrão <code>make</code>. Aqui nós fizemos um slice de uma
+            <code>string</code> de tamanho <code>3</code> (inicialmente com
+            valor zero).</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;emp:&quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Podemos definir e obter assim como as matrizes.</p>           
+
+          </td>
+          <td class="code leading">
+	          
+            <div class="highlight"><pre>    <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;a&quot;</span>
+    <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;b&quot;</span>
+    <span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;c&quot;</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;set:&quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;get:&quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p><code>len</code> retorna o tamanho do slice, como esperado.</p>           
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;len:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Além destas operações básicas, os slices suportam
+            muito mais, o que os tornam mais ricos do que as matrizes.
+            Uma é o padrão <code>append</code>, na qual retorna um slice
+            contendo um ou mais novos valores. Note que precisamos
+            aceitar um valor de retorno do append assim como podemos
+            obter um novo valor do slice.</p>
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">s</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">)</span>
+    <span class="nx">s</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">,</span> <span class="s">&quot;f&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;apd:&quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Slices também podem ser copiados. Aqui nós criamos um
+            slice vazio <code>c</code> do mesmo tamanho que <code>s</code> e copiamos
+            o <code>s</code> no <code>c</code>.</p>          
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">c</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+    <span class="nb">copy</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;cpy:&quot;</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Slices suportam um operador "slice" com a sintaxe 
+            <code>slice[min:max]</code>. Por exemplo, este pega um slice
+            dos elementos <code>s[2]</code>, <code>s[3]</code>, e s[4]</code>.</p>            
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">l</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;sl1:&quot;</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Esses slices são até (mas excluíndo) <code>s[5]</code>.</p>           
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">l</span> <span class="p">=</span> <span class="nx">s</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;sl2:&quot;</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>E esses slices são do (e incluindo) </code>s[2]</code>.</p>           
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">l</span> <span class="p">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;sl3:&quot;</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Nós também podemos declarar e inicializar uma variável para o slice
+            em uma única linha.</p>
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">t</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;g&quot;</span><span class="p">,</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="s">&quot;i&quot;</span><span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;dcl:&quot;</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Slices podem ser compostas em estruturas de dados multi-dimensionais.
+            O tamanho dos slices interiores pode variar, ao contrário das matrizes
+            multi-dimensionais.</p>    
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre>    <span class="nx">twoD</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([][]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="nx">innerLen</span> <span class="o">:=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="nx">twoD</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">innerLen</span><span class="p">)</span>
+        <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">innerLen</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+            <span class="nx">twoD</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="nx">j</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;2d: &quot;</span><span class="p">,</span> <span class="nx">twoD</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Note que enquanto os slices são tipos diferentes das matrizes,
+            eles são processados da mesma forma por <code>fmt.Println</code>.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> go run slices.go
+<span class="go">emp: [  ]</span>
+<span class="go">set: [a b c]</span>
+<span class="go">get: c</span>
+<span class="go">len: 3</span>
+<span class="go">apd: [a b c d e f]</span>
+<span class="go">cpy: [a b c d e f]</span>
+<span class="go">sl1: [c d e]</span>
+<span class="go">sl2: [a b c d e]</span>
+<span class="go">sl3: [c d e f]</span>
+<span class="go">dcl: [g h i]</span>
+<span class="go">2d:  [[0] [1 2] [2 3 4]]</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Confira este ótimo <a http://blog.golang.org/2011/01/go-slices-usage-and-internals.html">artigo do blog</a>
+	      da equipe Go para maiores detalhes de design e implementação dos slices no Go.</p>
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Agora que já vimos as matrizes e slices, nós iremos ver
+            outra chave fundamental das estruturas de dados do Go: maps.</p>        
+
+          </td>
+          <td class="code empty">
+	        
+            
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Próximo exemplo: <a href="maps">Maps</a>.        
+      </p>
+      
+      <p class="footer">
+        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo">código-fonte</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo#licen%C3%A7a">licença</a>
+      </p>
+    </div>
+  </body>
+</html>

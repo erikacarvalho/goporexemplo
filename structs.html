@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Go por Exemplo: Estruturas</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script type="text/javascript">
+    if (window.location.host == "gobyexample.com") {
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34996217-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    }
+  </script>
+  <body>
+    <div class="example" id="structs">
+      <h2><a href="./">Go por Exemplo</a>: Estruturas</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p><em>Estruturas</em> do Go são coleções de campos digitados.
+            Eles são úteis para agrupar dados em conjunto para formar 
+            registros.</p>
+
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        <a href="http://go-vim.appspot.com/p/5hL9wO2-YR"><img title="Executar código" src="play.png" class="run" /></a>
+            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Este tipo de estrutura <code>pessoa</code> possui os campos <code>nome</code> e <code>idade</code>.           
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">type</span> <span class="nx">pessoa</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">nome</span> <span class="kt">string</span>
+    <span class="nx">idade</span>  <span class="kt">int</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Esta sintaxe cria uma nova estrutura.</p>            
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">person</span><span class="p">{</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">})</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Você pode nomear campos ao inicializar uma estrutura.</p>            
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">person</span><span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="nx">idade</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Campos omitidos serão de valor-zero.</p>            
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">pessoa</span><span class="p">{</span><span class="nx">nome</span><span class="p">:</span> <span class="s">&quot;Fred&quot;</span><span class="p">})</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Um prefixo <code>&</code> rende um ponteiro para a estrutura.</p>            
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">pessoa</span><span class="p">{</span><span class="nx">nome</span><span class="p">:</span> <span class="s">&quot;Ann&quot;</span><span class="p">,</span> <span class="nx">idade</span><span class="p">:</span> <span class="mi">40</span><span class="p">})</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Acessa campos de estrutura com um ponto.</p>            
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nx">pessoa</span><span class="p">{</span><span class="nx">nome</span><span class="p">:</span> <span class="s">&quot;Sean&quot;</span><span class="p">,</span> <span class="nx">idade</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">nome</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+	<p>Você pode também usar pontos com ponteiros de estruturas - os
+	ponteiros são desreferenciados automaticamente.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">sp</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">s</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">sp</span><span class="p">.</span><span class="nx">idade</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Estruturas são mutáveis.</p>            
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre>    <span class="nx">sp</span><span class="p">.</span><span class="nx">idade</span> <span class="p">=</span> <span class="mi">51</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">sp</span><span class="p">.</span><span class="nx">idade</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> go run estruturas.go
+<span class="go">{Bob 20}</span>
+<span class="go">{Alice 30}</span>
+<span class="go">{Fred 0}</span>
+<span class="go">&amp;{Ann 40}</span>
+<span class="go">Sean</span>
+<span class="go">50</span>
+<span class="go">51</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Próximo exemplo: <a href="methods">Métodos</a>.
+      </p>
+      
+      <p class="footer">
+        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo">código-fonte</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo#licen%C3%A7a">licença</a>
+      </p>
+    </div>
+  </body>
+</html>
