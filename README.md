@@ -11,4 +11,4 @@ The Go Gopher is copyright the Go Authors and licensed under a
 [Jeremy Ashkenas](https://github.com/jashkenas)
 
 ### Tradução
-[Pistaches](http://www.pistach.es/)
+[Contribuidores](https://raw.githubusercontent.com/golangbr/goporexemplo/gh-pages/CONTRIBUIDORES)
