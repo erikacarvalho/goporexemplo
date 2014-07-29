@@ -19,10 +19,10 @@
   </script>
   <body>
     <div class="example" id="errors">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: Erros</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: Erros</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p>No Go é idiomático comunicar erros através de um
@@ -31,19 +31,19 @@
             resultados únicos sobrecarregados / valores de erros algumas vezes
             usados em C. Go torna fácil ver quais funções
             retornam erros e o tratamento deles usando construções da
-            mesma linguagem empregada para qualquer outra tarefa não-erro.</p>           
-           
+            mesma linguagem empregada para qualquer outra tarefa não-erro.</p>
+
 
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://go-vim.appspot.com/p/DltalMnNwK"><img title="Executar Código" src="play.png" class="run" /></a>
@@ -52,20 +52,20 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;errors&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
 
@@ -74,14 +74,14 @@
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">f1</span><span class="p">(</span><span class="nx">arg</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="nx">arg</span> <span class="o">==</span> <span class="mi">42</span> <span class="p">{</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p><code>errors.New</code> constrói um valor de <code>error</code> básico
@@ -90,40 +90,40 @@
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">New</span><span class="p">(</span><span class="s">não pode trabalhar com 42&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="p">}</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Um valor zero na posilção do erro indica que 
+            <p>Um valor zero na posilção do erro indica que
             não houve erro.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="k">return</span> <span class="nx">arg</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">nil</span>
 <span class="p">}</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>É possível usar tipos personalizados como <code>error</code>s através
@@ -133,7 +133,7 @@
 
           </td>
           <td class="code leading">
-	        
+
     <div class="highlight"><pre><span class="kd">type</span> <span class="nx">argError</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">arg</span>  <span class="kt">int</span>
     <span class="nx">prob</span> <span class="kt">string</span>
@@ -142,13 +142,13 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">argError</span><span class="p">)</span> <span class="nx">Error</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%d - %s&quot;</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">arg</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">prob</span><span class="p">)</span>
 <span class="p">}</span>
@@ -156,20 +156,20 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">f2</span><span class="p">(</span><span class="nx">arg</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="nx">arg</span> <span class="o">==</span> <span class="mi">42</span> <span class="p">{</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Neste caso usamos a sintaxe <code>&amp;argError</code> para construir
@@ -178,7 +178,7 @@
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">argError</span><span class="p">{</span><span class="nx">arg</span><span class="p">,</span> <span class="s">não pode trabalhar com ele.</span><span class="p">}</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="nx">arg</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">nil</span>
@@ -187,19 +187,19 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Os dois loops do teste abaixo mostram cada uma das
@@ -209,7 +209,7 @@
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">42</span><span class="p">}</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">e</span> <span class="o">:=</span> <span class="nx">f1</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="nx">e</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
             <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;f1 falhou:&quot;</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span>
@@ -228,7 +228,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Se você quiser usar programaticamente dados em um
@@ -237,7 +237,7 @@
 
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre>    <span class="nx">_</span><span class="p">,</span> <span class="nx">e</span> <span class="o">:=</span> <span class="nx">f2</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
     <span class="k">if</span> <span class="nx">ae</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.(</span><span class="o">*</span><span class="nx">argError</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">ae</span><span class="p">.</span><span class="nx">arg</span><span class="p">)</span>
@@ -248,17 +248,17 @@
 
           </td>
         </tr>
-        
+
       </table>
-       
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="gp">$</span> go run errors.go
 <span class="go">f1 funcionou: 10</span>
 <span class="go">f1 falhou: não pode trabalhar com 42</span>
@@ -270,28 +270,28 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Veja essa <a href="http://blog.golang.org/2011/07/error-handling-and-go.html">ótima postagem</a>
-	    no blog do Go para saber mais sobre tratamento de erros.</p>            
+	    no blog do Go para saber mais sobre tratamento de erros.</p>
 
           </td>
           <td class="code empty">
-	        
-            
+
+
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo exemplo: <a href="http://goporexemplo.pistach.es/goroutines.html">Goroutines</a>.
+        Próximo exemplo: <a href="./goroutines.html">Goroutines</a>.
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

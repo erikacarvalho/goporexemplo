@@ -19,24 +19,24 @@
   </script>
   <body>
     <div class="example" id="switch">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: Switch</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: Switch</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p><em>Instruções switch</em> expressam condições através
             de vários ramos.</p>
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://go-vim.appspot.com/p/4aCaeyH0vd"><img title="Executar código" src="play.png" class="run" /></a>
@@ -45,39 +45,39 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;time&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Aqui está um <code>switch</code> básico.</p>          
+            <p>Aqui está um <code>switch</code> básico.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">i</span> <span class="o">:=</span> <span class="mi">2</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s">&quot;escreva &quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="s">&quot; como &quot;</span><span class="p">)</span>
     <span class="k">switch</span> <span class="nx">i</span> <span class="p">{</span>
@@ -92,7 +92,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Você pode usar vírgulas para separar várias expressões
@@ -100,7 +100,7 @@
             opcional <code>default</code> nesse exemplo.</p>
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="k">switch</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">().</span><span class="nx">Weekday</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Saturday</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Sunday</span><span class="p">:</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;é final de semana&quot;</span><span class="p">)</span>
@@ -111,7 +111,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p><code>switch</code> sem uma expressão é uma forma alternativa
@@ -119,7 +119,7 @@
             as expressões <code>case</code> podem ser não-constantes.</p>
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre>    <span class="nx">t</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">()</span>
     <span class="k">switch</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nx">t</span><span class="p">.</span><span class="nx">Hour</span><span class="p">()</span> <span class="p">&lt;</span> <span class="mi">12</span><span class="p">:</span>
@@ -132,18 +132,18 @@
 
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run switch.go 
+
+            <div class="highlight"><pre><span class="gp">$</span> go run switch.go
 <span class="go">escreva 2 como dois</span>
 <span class="go">é final de semana</span>
 <span class="go">é antes do meio dia</span>
@@ -151,16 +151,16 @@
 
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo exemplo: <a href="http://goporexemplo.pistach.es/arrays.html">Arrays</a>.
+        Próximo exemplo: <a href="./arrays.html">Arrays</a>.
       </p>
-      
+
       <p class="footer">
-       <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+       <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

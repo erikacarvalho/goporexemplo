@@ -19,24 +19,24 @@
   </script>
   <body>
     <div class="example" id="methods">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: Métodos</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: Métodos</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            <p>Go suporta <em>métodos</em> definidos em tipos struct.</p>            
+            <p>Go suporta <em>métodos</em> definidos em tipos struct.</p>
 
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://go-vim.appspot.com/p/lO0h-NxQha"><img title="Executar código" src="play.png" class="run" /></a>
@@ -45,25 +45,25 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">type</span> <span class="nx">rect</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span> <span class="kt">int</span>
 <span class="p">}</span>
@@ -71,14 +71,14 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Este método <code>area</code> possui um <em>tipo receptor</em> de <code>*rect</code>.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">rect</span><span class="p">)</span> <span class="nx">area</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nx">r</span><span class="p">.</span><span class="nx">height</span>
 <span class="p">}</span>
@@ -86,7 +86,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Métodos podem ser definidos para qualquer tipo de receptor
@@ -94,7 +94,7 @@
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="nx">rect</span><span class="p">)</span> <span class="nx">perim</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="nx">r</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="nx">r</span><span class="p">.</span><span class="nx">height</span>
 <span class="p">}</span>
@@ -102,45 +102,45 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">r</span> <span class="o">:=</span> <span class="nx">rect</span><span class="p">{</span><span class="nx">width</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">height</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Nós podemos chamar 2 métodos definidos na nossa estrutura.</p>            
+            <p>Nós podemos chamar 2 métodos definidos na nossa estrutura.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;area: &quot;</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nx">area</span><span class="p">())</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;perim:&quot;</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nx">perim</span><span class="p">())</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Go trata automaticamente conversões entre valores
             e ponteiros para métodos de chamada. Você pode querer usar
             um ponteiro do tipo receptor para evitar a cópia de um método
             de chamada ou para permitir que o método faça mutação da
-            estrutura recebida.</p>            
+            estrutura recebida.</p>
 
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre>    <span class="nx">rp</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">r</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;area: &quot;</span><span class="p">,</span> <span class="nx">rp</span><span class="p">.</span><span class="nx">area</span><span class="p">())</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;perim:&quot;</span><span class="p">,</span> <span class="nx">rp</span><span class="p">.</span><span class="nx">perim</span><span class="p">())</span>
@@ -149,18 +149,18 @@
 
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run métodos.go 
+
+            <div class="highlight"><pre><span class="gp">$</span> go run métodos.go
 <span class="go">area:  50</span>
 <span class="go">perim: 30</span>
 <span class="go">area:  50</span>
@@ -169,7 +169,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Em seguida vamos olhar os mecanismos do Go para agrupar e
@@ -177,20 +177,20 @@
 
           </td>
           <td class="code empty">
-	        
-            
+
+
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo exemplo: <a href="http://goporexemplo.pistach.es/interfaces.html">Interfaces</a>.
+        Próximo exemplo: <a href="./interfaces.html">Interfaces</a>.
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

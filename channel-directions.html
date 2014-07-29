@@ -19,27 +19,27 @@
   </script>
   <body>
     <div class="example" id="channel-directions">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: Direções do Canal</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: Direções do Canal</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p>Ao utilizar canais como parâmetros de funções, você pode
             especificar se o canal é destinado a apenas enviar ou receber
-            valores. Essa especificidade aumenta a segurança de tipos do 
+            valores. Essa especificidade aumenta a segurança de tipos do
             programa.</p>
 
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://go-vim.appspot.com/p/sqVH5r8dck"><img title="Executar código" src="play.png" class="run" /></a>
@@ -48,19 +48,19 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Essa função <code>ping</code> aceita apenas um canal para enviar
@@ -69,7 +69,7 @@
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">ping</span><span class="p">(</span><span class="nx">pings</span> <span class="kd">chan</span><span class="o">&lt;-</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">pings</span> <span class="o">&lt;-</span> <span class="nx">msg</span>
 <span class="p">}</span>
@@ -77,7 +77,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>A função <code>pong</code> aceita um canal para receber
@@ -85,7 +85,7 @@
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">pong</span><span class="p">(</span><span class="nx">pings</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">pongs</span> <span class="kd">chan</span><span class="o">&lt;-</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">msg</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">pings</span>
     <span class="nx">pongs</span> <span class="o">&lt;-</span> <span class="nx">msg</span>
@@ -94,13 +94,13 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">pings</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="nx">pongs</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -112,33 +112,33 @@
 
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre><span class="gp">$</span> go run direções-de-canais.go
 <span class="go">mensagem passada</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo exemplo: <a href="http://goporexemplo.pistach.es/select.html">Select</a>.
+        Próximo exemplo: <a href="./select.html">Select</a>.
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

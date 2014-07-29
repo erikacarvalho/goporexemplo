@@ -19,10 +19,10 @@
   </script>
   <body>
     <div class="example" id="interfaces">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: Interfaces</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: Interfaces</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p><em>Interfaces</em> são coleções nomeadas de
@@ -30,14 +30,14 @@
 
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://www.go-vim.appspot.com/p/RqIakY1yxL"><img title="Executar código" src="play.png" class="run" /></a>
@@ -46,27 +46,27 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;math&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Aqui temos uma interface básica para formas geométricas.</p>            
+            <p>Aqui temos uma interface básica para formas geométricas.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">type</span> <span class="nx">geometria</span> <span class="kd">interface</span> <span class="p">{</span>
     <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span>
     <span class="nx">perim</span><span class="p">()</span> <span class="kt">float64</span>
@@ -75,15 +75,15 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Para nosso exemplo vamos implementar essa interface nos 
+            <p>Para nosso exemplo vamos implementar essa interface nos
             tipos <code>quadrado</code> e <code>círculo</code>.
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">type</span> <span class="nx">quadrado</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">largura</span><span class="p">,</span> <span class="nx">altura</span> <span class="kt">float64</span>
 <span class="p">}</span>
@@ -94,7 +94,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Para implementar uma interface no Go, nós apenas precisamos
@@ -103,7 +103,7 @@
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">q</span> <span class="nx">quadrado</span><span class="p">)</span> <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">q</span><span class="p">.</span><span class="nx">largura</span> <span class="o">*</span> <span class="nx">s</span><span class="p">.</span><span class="nx">altura</span>
 <span class="p">}</span>
@@ -114,14 +114,14 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>A implementação para <code>círculo</code>s.</p>            
+            <p>A implementação para <code>círculo</code>s.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">círculo</span><span class="p">)</span> <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">math</span><span class="p">.</span><span class="nx">Pi</span> <span class="o">*</span> <span class="nx">c</span><span class="p">.</span><span class="nx">raio</span> <span class="o">*</span> <span class="nx">c</span><span class="p">.</span><span class="nx">raio</span>
 <span class="p">}</span>
@@ -132,7 +132,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Se a variável possui um tipo inteface, então nós podemos chamar
@@ -142,7 +142,7 @@
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">medir</span><span class="p">(</span><span class="nx">g</span> <span class="nx">geometria</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">g</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">area</span><span class="p">())</span>
@@ -152,13 +152,13 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">q</span> <span class="o">:=</span> <span class="nx">quadrado</span><span class="p">{</span><span class="nx">largura</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">altura</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
     <span class="nx">c</span> <span class="o">:=</span> <span class="nx">círculo</span><span class="p">{</span><span class="nx">raio</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
@@ -166,7 +166,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Os tipos de estruturas <code>círculo</code> e <code>quadrado</code> ambos
@@ -175,7 +175,7 @@
 
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre>    <span class="nx">medir</span><span class="p">(</span><span class="nx">q</span><span class="p">)</span>
     <span class="nx">medir</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
 <span class="p">}</span>
@@ -183,17 +183,17 @@
 
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="gp">$</span> go run interfaces.go
 <span class="go">{3 4}</span>
 <span class="go">12</span>
@@ -205,28 +205,28 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Para aprender mais sobre interfaces do Go, confira esse           
+            <p>Para aprender mais sobre interfaces do Go, confira esse
 <a href="http://jordanorelli.tumblr.com/post/32665860244/how-to-use-interfaces-in-go">ótima postagem</a>.</p>
 
           </td>
           <td class="code empty">
-	        
-            
+
+
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo exemplo: <a href="http://goporexemplo.pistach.es/errors.html">Erros</a>.
+        Próximo exemplo: <a href="./errors.html">Erros</a>.
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

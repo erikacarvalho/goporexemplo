@@ -19,10 +19,10 @@
   </script>
   <body>
     <div class="example" id="pointers">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: Ponteiros</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: Ponteiros</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
           <p>Go suporta <em><a href="http://pt.wikipedia.org/wiki/Ponteiro_(programa%C3%A7%C3%A3o)">ponteiros</a></em>,
@@ -31,14 +31,14 @@ dentro de seu programa.</p>
 
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://go-vim.appspot.com/p/SjvssVzOB_"><img title="Executar código" src="play.png" class="run" /></a>
@@ -47,19 +47,19 @@ dentro de seu programa.</p>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Vamos mostrar como os ponteiros trabalham em contraste aos valores
@@ -69,7 +69,7 @@ dentro de seu programa.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">zeroval</span><span class="p">(</span><span class="nx">ival</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">ival</span> <span class="p">=</span> <span class="mi">0</span>
 <span class="p">}</span>
@@ -77,7 +77,7 @@ dentro de seu programa.</p>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p><code>zeroptr</code> em contraste possui um parâmetro <code>*int</code>, ou seja,
@@ -85,11 +85,11 @@ dentro de seu programa.</p>
             corpo da função então <code>desreferencia</code> o ponteiro de seu
             endereço de memória para o valor atual nesse endereço.
             Atribuir um valor para um ponteiro desreferenciado muda o
-            valor do endereço referenciado.</p>            
+            valor do endereço referenciado.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">zeroptr</span><span class="p">(</span><span class="nx">iptr</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
     <span class="o">*</span><span class="nx">iptr</span> <span class="p">=</span> <span class="mi">0</span>
 <span class="p">}</span>
@@ -97,13 +97,13 @@ dentro de seu programa.</p>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;inicial:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
@@ -111,20 +111,20 @@ dentro de seu programa.</p>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">zeroval</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;zeroval:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>A sintaxe <code>&amp;i</code> fornece o endereço da memória do <code>i</code>,
@@ -132,32 +132,32 @@ dentro de seu programa.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">zeroptr</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;zeroptr:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Ponteiros podem ser impressos também.</p>            
+            <p>Ponteiros podem ser impressos também.</p>
 
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;ponteiro:&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
           <p><code>zeroval</code> não altera o <code>i</code> no <code>main</code>, mas
@@ -166,7 +166,7 @@ dentro de seu programa.</p>
 
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre><span class="gp">$</span> go run ponteiros.go
 <span class="go">inicial: 1</span>
 <span class="go">zeroval: 1</span>
@@ -176,16 +176,16 @@ dentro de seu programa.</p>
 
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo exemplo: <a href="http://goporexemplo.pistach.es/structs.html">Estruturas</a>.
+        Próximo exemplo: <a href="./structs.html">Estruturas</a>.
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

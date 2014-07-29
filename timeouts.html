@@ -19,10 +19,10 @@
   </script>
   <body>
     <div class="example" id="timeouts">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: Timeouts</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: Timeouts</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p><em>Timeouts</em> são importantes para programas que se conectam à
@@ -31,14 +31,14 @@
 
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://go-vim.appspot.com/p/tcmLVZOBVZ"><img title="Executar código" src="play.png" class="run" /></a>
@@ -47,41 +47,41 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;time&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Para nosso exemplo, suponhamos que iremos executar uma chamada
-            externa que retorna seu resultado no canal <code>c1</code> 
+            externa que retorna seu resultado no canal <code>c1</code>
             depois de 2s.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">c1</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
@@ -91,19 +91,19 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Aqui temos o <code>select</code> implementando o timeout.
             <code>res := &lt;-c1</code> espera o resultado e <code>&lt;-Time.After</code>
             aguarda o valor a ser enviado depois do timeout de 1s.
-            Desde que o <code>select</code> proceda com o primeiro 
+            Desde que o <code>select</code> proceda com o primeiro
             recebimento pronto, nós pegaremos o timeout caso a
             operação leve mais do que o 1s permitido.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="k">select</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nx">res</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">c1</span><span class="p">:</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
@@ -114,7 +114,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Se nós permitimos um timeout maior do que 3s, então o recebimento
@@ -122,7 +122,7 @@
 
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre>    <span class="nx">c2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
@@ -139,53 +139,53 @@
 
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
-          
-                   
+
+
             <p>A execução deste programa mostra a primeira operação de limite
             de tempo e o segundo sucedendo.</p>
 
           </td>
           <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run timeouts.go 
+
+            <div class="highlight"><pre><span class="gp">$</span> go run timeouts.go
 <span class="go">timeout 1</span>
 <span class="go">resultado 2</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Usar o <code>select</code> timeout padrão requer
             comunicação dos resultados através de canais. Isso é uma boa
-            idéia em geral, pois outros recursos importantes do Go são 
-            baseados em canais e no <code>select</code>. Nós iremos olhar 
+            idéia em geral, pois outros recursos importantes do Go são
+            baseados em canais e no <code>select</code>. Nós iremos olhar
             dois exemplos disso a seguir: timers e tickers.</p>
-            
+
           </td>
           <td class="code empty">
-	        
-            
+
+
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo exemplo: <a href="http://goporexemplo.pistach.es/non-blocking-channel-operations.html">Operações de Canal Sem-Bloqueio</a>.
+        <!--Próximo exemplo: <a href="./non-blocking-channel-operations.html">Operações de Canal Sem-Bloqueio</a>.-->
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

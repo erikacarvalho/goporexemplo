@@ -19,28 +19,28 @@
   </script>
   <body>
     <div class="example" id="channel-synchronization">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: Sincronização de Canal</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: Sincronização de Canal</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p>Nós podemos usar canais para sincronizar a execução
             através das goroutines. Aqui temos um exemplo do uso de
             um bloqueador de recebimento para esperar pela finalização
-            de uma goroutine.</p>           
-            
+            de uma goroutine.</p>
+
 
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://go-vim.appspot.com/p/gK4_xUeyL-"><img title="Executar código" src="play.png" class="run" /></a>
@@ -49,29 +49,29 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;time&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Essa é a função que iremos executar em uma goroutine. O
-            canal <code>feito</code> será usado para notificar outra 
+            canal <code>feito</code> será usado para notificar outra
             goroutine que essa função trabalhador é feita.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">trabalhador</span><span class="p">(</span><span class="nx">feito</span> <span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s">&quot;trabalhando...&quot;</span><span class="p">)</span>
     <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
@@ -80,33 +80,33 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Envia um valor para notificar o que estamos fazendo.</p>            
+            <p>Envia um valor para notificar o que estamos fazendo.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">feito</span> <span class="o">&lt;-</span> <span class="kc">true</span>
 <span class="p">}</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Inicia a goroutine trabalhador, dando-lhe um canal
@@ -114,14 +114,14 @@
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">feito</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">go</span> <span class="nx">trabalhador</span><span class="p">(</span><span class="nx">feito</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Bloqueia até que recebamos uma notificação de um
@@ -129,31 +129,31 @@
 
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre>    <span class="o">&lt;-</span><span class="nx">feito</span>
 <span class="p">}</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="gp">$</span> go run sincronização-canal.go
 <span class="go">trabalhando...feito                  </span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Se você removeu a linha <code>&lt;- feito</code> desse programa, o programa
@@ -161,20 +161,20 @@
 
           </td>
           <td class="code empty">
-	        
-            
+
+
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo exemplo: <a href="http://goporexemplo.pistach.es/channel-directions.html">Direções do Canal</a>.
+        Próximo exemplo: <a href="./channel-directions.html">Direções do Canal</a>.
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

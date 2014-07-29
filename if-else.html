@@ -19,25 +19,25 @@
   </script>
   <body>
     <div class="example" id="if-else">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: If/Else</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: If/Else</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p>A ramificação com <code>if</code> e <code>else</code> em Go é
             direta.</p>
-            
+
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://go-vim.appspot.com/p/Qze4xIRt5_"><img title="Executar código" src="play.png" class="run" /></a>
@@ -46,38 +46,38 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Aqui está um exemplo básico.</p>           
+            <p>Aqui está um exemplo básico.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="k">if</span> <span class="mi">7</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;7 é par&quot;</span><span class="p">)</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -87,14 +87,14 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Você pode ter uma condição <code>if</code> sem um else.</p>            
+            <p>Você pode ter uma condição <code>if</code> sem um else.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="k">if</span> <span class="mi">8</span><span class="o">%</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;8 é divisível por 4&quot;</span><span class="p">)</span>
     <span class="p">}</span>
@@ -102,16 +102,16 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Uma instrução pode preceder condições; qualquer variável
             declarada nessa condição está disponível para todas as
-            ramificações.</p>            
+            ramificações.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="k">if</span> <span class="nx">num</span> <span class="o">:=</span> <span class="mi">9</span><span class="p">;</span> <span class="nx">num</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span> <span class="s">&quot;é negativo&quot;</span><span class="p">)</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">num</span> <span class="p">&lt;</span> <span class="mi">10</span> <span class="p">{</span>
@@ -124,30 +124,30 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-	    <p>Note que você não precisa de parênteses nas condições em Go, 
-	    mas os colchetes são necessários.</p>            
+	    <p>Note que você não precisa de parênteses nas condições em Go,
+	    mas os colchetes são necessários.</p>
 
           </td>
           <td class="code empty">
-	        
-            
+
+
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run <span class="k">if</span>-else.go 
+
+            <div class="highlight"><pre><span class="gp">$</span> go run <span class="k">if</span>-else.go
 <span class="go">7 é impar</span>
 <span class="go">8 é divisível por 4</span>
 <span class="go">9 tem 1 dígito</span>
@@ -155,7 +155,7 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Não há <a href="http://en.wikipedia.org/wiki/%3F:">if ternário</a> em Go,
@@ -164,20 +164,20 @@
 
           </td>
           <td class="code empty">
-	        
-            
+
+
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo Exemplo: <a href="http://goporexemplo.pistach.es/switch.html">Switch</a>.
+        Próximo Exemplo: <a href="./switch.html">Switch</a>.
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

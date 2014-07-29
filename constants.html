@@ -19,24 +19,24 @@
   </script>
   <body>
     <div class="example" id="constants">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: Constantes</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: Constantes</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            <p>Go suporta <em>contantes</em> de caracteres, strings, booleanos e 
-            valores numéricos.</p>           
+            <p>Go suporta <em>contantes</em> de caracteres, strings, booleanos e
+            valores numéricos.</p>
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://go-vim.appspot.com/p/Q17_18Jt6y"><img title="Executar código4" src="play.png" class="run" /></a>
@@ -45,114 +45,114 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;math&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-	    <p><code>const</code> declara um valor constante.</p>     
+	    <p><code>const</code> declara um valor constante.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">const</span> <span class="nx">s</span> <span class="kt">string</span> <span class="p">=</span> <span class="s">&quot;constante&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>A instrução <code>const</code> pode aparecer em qualquer lugar onde a
-            instrução <code>var</code> pode.            
+            instrução <code>var</code> pode.
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="kd">const</span> <span class="nx">n</span> <span class="p">=</span> <span class="mi">500000000</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Expressões constantes realizam aritmética com precisão arbitrária.</p>
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="kd">const</span> <span class="nx">d</span> <span class="p">=</span> <span class="mf">3e20</span> <span class="o">/</span> <span class="nx">n</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Uma constante numérica não possui nenhum tipo até que
-            seja dado um, como por uma conversão explícita.</p> 
+            seja dado um, como por uma conversão explícita.</p>
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">int64</span><span class="p">(</span><span class="nx">d</span><span class="p">))</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Um número pode ser definido como um tipo usando ele 
+            <p>Um número pode ser definido como um tipo usando ele
             em um contexto que requira um, assim como uma
             atribuição de variável ou função chamada. Por exemplo,
-            aqui o <code>math.Sin</code> espera um <code>float64</code>.</p>            
+            aqui o <code>math.Sin</code> espera um <code>float64</code>.</p>
 
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">n</span><span class="p">))</span>
 <span class="p">}</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run constante.go 
+
+            <div class="highlight"><pre><span class="gp">$</span> go run constante.go
 <span class="go">constante</span>
 <span class="go">6e+11</span>
 <span class="go">600000000000</span>
@@ -161,16 +161,16 @@
 
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo exemplo: <a href="http://goporexemplo.pistach.es/for.html">For</a>.        
+        Próximo exemplo: <a href="./for.html">For</a>.
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

@@ -19,10 +19,10 @@
   </script>
   <body>
     <div class="example" id="maps">
-      <h2><a href="http://goporexemplo.pistach.es/">Go por Exemplo</a>: Maps</h2>
-      
+      <h2><a href="./">Go por Exemplo</a>: Maps</h2>
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p><em>Maps</em> são <a href="http://en.wikipedia.org/wiki/Associative_array">tipos de dados
@@ -31,14 +31,14 @@
 
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://go-vim.appspot.com/p/XPvE9rHW39"><img title="Executar código" src="play.png" class="run" /></a>
@@ -47,142 +47,142 @@
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Para criar um map vazio, use o padrão <code>make</code>:
-            <code>make(map[tipo-chave]tipo-val)</code>.</p>           
+            <code>make(map[tipo-chave]tipo-val)</code>.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">m</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Configura os pares chave/valor usando a típica sintaxe 
+            <p>Configura os pares chave/valor usando a típica sintaxe
             <code>nome[chave] = val</code>.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">m</span><span class="p">[</span><span class="s">&quot;k1&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="mi">7</span>
     <span class="nx">m</span><span class="p">[</span><span class="s">&quot;k2&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="mi">13</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Imprimir um map com, por ex. <code>Println</code> irá mostrar
             todas os pares chave/valor.</p>
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;map:&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Pega o valor para uma chave <code>nome[chave]</code>.</p>            
+            <p>Pega o valor para uma chave <code>nome[chave]</code>.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">v1</span> <span class="o">:=</span> <span class="nx">m</span><span class="p">[</span><span class="s">&quot;k1&quot;</span><span class="p">]</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;v1: &quot;</span><span class="p">,</span> <span class="nx">v1</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>O padrão <code>len</code> retorna o número do par chave/valor 
+            <p>O padrão <code>len</code> retorna o número do par chave/valor
             quando chamado por um map.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;len:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">))</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>O padrão <code>delete</code> remove os pares chave/valor de
             um map.</p>
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nb">delete</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="s">&quot;k2&quot;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;map:&quot;</span><span class="p">,</span> <span class="nx">m</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>O segundo opcional, retorna um valor quando chega o
             valor de um map, indicando que a chave estava presente
-            em um map. Isso pode ser usado para distinguir entre as 
-            chaves perdidas e as chaves com valor zero, como 
-            <code>0</code> ou <code>""</code>.</p>          
+            em um map. Isso pode ser usado para distinguir entre as
+            chaves perdidas e as chaves com valor zero, como
+            <code>0</code> ou <code>""</code>.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">_</span><span class="p">,</span> <span class="nx">prs</span> <span class="o">:=</span> <span class="nx">m</span><span class="p">[</span><span class="s">&quot;k2&quot;</span><span class="p">]</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;prs:&quot;</span><span class="p">,</span> <span class="nx">prs</span><span class="p">)</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            <p>Você pode também declarar e iniciar um novo map 
-            na mesma linha com essa sintaxe.</p>           
+            <p>Você pode também declarar e iniciar um novo map
+            na mesma linha com essa sintaxe.</p>
 
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre>    <span class="nx">n</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;foo&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;map:&quot;</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
 <span class="p">}</span>
@@ -190,20 +190,20 @@
 
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p>Note que o maps aparece na forma <code>map[c:v c:v]</code> quando
-            impresso com o <code>fmt.Println</code>.</p>           
+            impresso com o <code>fmt.Println</code>.</p>
 
           </td>
           <td class="code">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run maps.go 
+
+            <div class="highlight"><pre><span class="gp">$</span> go run maps.go
 <span class="go">map: map[k1:7 k2:13]</span>
 <span class="go">v1:  7</span>
 <span class="go">len: 2</span>
@@ -214,16 +214,16 @@
 
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
-        Próximo exemplo: <a href="http://goporexemplo.pistach.es/range.html">Range</a>.        
+        Próximo exemplo: <a href="./range.html">Range</a>.
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/goporexemplo">código-fonte</a> | <a href="https://github.com/pistaches/goporexemplo/blob/gh-pages/README.md">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>

@@ -20,9 +20,9 @@
   <body>
     <div class="example" id="non-blocking-channel-operations">
       <h2><a href="./">Go by Example</a>: Non-Blocking Channel Operations</h2>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p>Basic sends and receives on channels are blocking.
@@ -32,14 +32,14 @@ non-blocking multi-way <code>select</code>s.</p>
 
           </td>
           <td class="code empty leading">
-	        
-            
+
+
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
 	        <a href="http://play.golang.org/p/M972dltae2"><img title="Run code" src="play.png" class="run" /></a>
@@ -48,25 +48,25 @@ non-blocking multi-way <code>select</code>s.</p>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">messages</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">)</span>
     <span class="nx">signals</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span>
@@ -74,7 +74,7 @@ non-blocking multi-way <code>select</code>s.</p>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>Here&rsquo;s a non-blocking receive. If a value is
@@ -84,7 +84,7 @@ it will immediately take the <code>default</code> case.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="k">select</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nx">msg</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">messages</span><span class="p">:</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;received message&quot;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
@@ -95,14 +95,14 @@ it will immediately take the <code>default</code> case.</p>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>A non-blocking send works similarly.</p>
 
           </td>
           <td class="code leading">
-	        
+
             <div class="highlight"><pre>    <span class="nx">msg</span> <span class="o">:=</span> <span class="s">&quot;hi&quot;</span>
     <span class="k">select</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nx">messages</span> <span class="o">&lt;-</span> <span class="nx">msg</span><span class="p">:</span>
@@ -114,7 +114,7 @@ it will immediately take the <code>default</code> case.</p>
 
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>We can use multiple <code>case</code>s above the <code>default</code>
@@ -124,7 +124,7 @@ on both <code>messages</code> and <code>signals</code>.</p>
 
           </td>
           <td class="code">
-	        
+
             <div class="highlight"><pre>    <span class="k">select</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nx">msg</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">messages</span><span class="p">:</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;received message&quot;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
@@ -138,18 +138,18 @@ on both <code>messages</code> and <code>signals</code>.</p>
 
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run non-blocking-channel-operations.go 
+
+            <div class="highlight"><pre><span class="gp">$</span> go run non-blocking-channel-operations.go
 <span class="go">no message received</span>
 <span class="go">no message sent</span>
 <span class="go">no activity</span>
@@ -157,16 +157,16 @@ on both <code>messages</code> and <code>signals</code>.</p>
 
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
         Next example: <a href="closing-channels">Closing Channels</a>.
       </p>
-      
+
       <p class="footer">
-        <a href="http://pistach.es">pistaches</a> | <a href="mailto:quale@pistach.es">feedback</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo">código-fonte</a> | <a href="https://github.com/pistaches/go/tree/gh-pages/porexemplo#licen%C3%A7a">licença</a>
+        <a href="http://golangbr.org">golangbr</a> | <a href="mailto:contato@golangbr.org">feedback</a> | <a href="https://github.com/golangbr/goporexemplo">código-fonte</a> | <a href="https://github.com/golangbr/goporexemplo/blob/gh-pages/README.md">licença</a>
       </p>
     </div>
   </body>
